@@ -20,7 +20,7 @@ on:
     workflow_dispatch:
 
 # Declare default permissions as read only.
-permissions: read-all
+permissions: write-all
 
 jobs:
 
@@ -79,3 +79,7 @@ jobs:
                     -DCMAKE_INSTALL_PREFIX:PATH=$PREFIX \
                     ..
             nmake
+        - name: Upload artifacts
+          uses: actions/upload-artifact@v4.6.2
+          with:
+              path: .
